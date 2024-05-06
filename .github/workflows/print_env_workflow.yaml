@@ -20,5 +20,6 @@ jobs:
           cloud_function_directory: cloud_function_directory_test
           credentials: credentials_test
           debug_mode: debug_mode_test
+          token: ${{ secrets.TOKEN }}
       #- name: Print the square
       #  run: echo "${{ steps.get_square.outputs.num_squared }}"
