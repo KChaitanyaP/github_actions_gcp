@@ -9,7 +9,6 @@ debug_mode = os.environ.get("DEBUG_MODE")
 
 # to set output, print to shell in following syntax
 # print(f"::set-output name=num_squared::{num ** 2}")
-
 print("gcp_project", gcp_project)
 print("gcp_region", gcp_region)
 print("cloud_function_name", cloud_function_name)
