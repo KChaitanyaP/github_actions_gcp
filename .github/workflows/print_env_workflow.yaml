@@ -2,14 +2,14 @@ name: Print env vars
 on: [push]
 
 jobs:
-  get-num-square:
+  print-env-vars:
     runs-on: ubuntu-latest
     name: Prints the env vars
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Print env vars
-        id: get_square
+        id: print_env_vars
         uses: ./.github/actions/print_env # Uses an action in the root directory
         # or use a released GitHub Action
         # uses: shipyard/github-action/fetch-shipyard-env@1.0.0
