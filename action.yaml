@@ -20,6 +20,9 @@ inputs:
   debug_mode:
     description: 'Enable debug mode'
     required: false
+  token:
+    description: 'Token'
+    required: true
 runs:
   using: 'composite'
   steps:
@@ -38,6 +41,7 @@ runs:
         echo "CLOUD_FUNCTION_DIRECTORY=${{ inputs.cloud_function_directory }}" >> $GITHUB_ENV
         echo "CREDENTIALS=${{ inputs.credentials }}" >> $GITHUB_ENV
         echo "DEBUG_MODE=${{ inputs.debug_mode }}" >> $GITHUB_ENV
+        echo "TOKEN=${{ inputs.token }}" >> $GITHUB_ENV
       shell: bash
     - name: Fetch the number's square
       id: print_env
