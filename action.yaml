@@ -1,4 +1,4 @@
-name: 'Google Cloud resources "Deploy code" Action'
+name: 'Google-Cloud-Functions-Deploy-Source-Code-Action'
 description: 'This Github action can be used to deploy source code to GCP Cloud Functions.'
 author: 'Chaitanya Pusuluri'
 inputs:
