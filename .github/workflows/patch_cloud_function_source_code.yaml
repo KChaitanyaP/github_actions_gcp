@@ -1,5 +1,5 @@
 name: patch-cloud-function
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   patch-cloud-function:
