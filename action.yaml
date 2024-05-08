@@ -29,7 +29,7 @@ runs:
       with:
         python-version: '3.10'
     - name: Install Dependencies
-      run: pip install -r requirements.txt
+      run: pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
 #     - name: Pass Inputs to Shell
 #      run: |
@@ -47,5 +47,5 @@ runs:
         SOURCE_CODE_DIRECTORY: ${{ inputs.source_code_directory }}
         CREDENTIALS: ${{ inputs.credentials }}
       id: patch_cloud_function_source_code
-      run: python src/patch_cloud_function_source_code.py
+      run: python ${{ github.action_path }}/src/patch_cloud_function_source_code.py
       shell: bash
