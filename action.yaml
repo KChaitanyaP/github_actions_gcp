@@ -31,15 +31,21 @@ runs:
     - name: Install Dependencies
       run: pip install -r requirements.txt
       shell: bash
-    - name: Pass Inputs to Shell
-      run: |
-        echo "GCP_PROJECT=${{ inputs.gcp_project }}" >> $GITHUB_ENV
-        echo "GCP_REGION=${{ inputs.gcp_region }}" >> $GITHUB_ENV
-        echo "CLOUD_FUNCTION_NAME=${{ inputs.cloud_function_name }}" >> $GITHUB_ENV
-        echo "SOURCE_CODE_DIRECTORY=${{ inputs.source_code_directory }}" >> $GITHUB_ENV
-        echo "CREDENTIALS=${{ inputs.credentials }}" >> $GITHUB_ENV
-      shell: bash
+#     - name: Pass Inputs to Shell
+#      run: |
+#        echo "GCP_PROJECT=${{ inputs.gcp_project }}" >> $GITHUB_ENV
+#        echo "GCP_REGION=${{ inputs.gcp_region }}" >> $GITHUB_ENV
+#        echo "CLOUD_FUNCTION_NAME=${{ inputs.cloud_function_name }}" >> $GITHUB_ENV
+#        echo "SOURCE_CODE_DIRECTORY=${{ inputs.source_code_directory }}" >> $GITHUB_ENV
+#        echo "CREDENTIALS=${{ inputs.credentials }}" >> $GITHUB_ENV
+#      shell: bash
     - name: Push Source Code to Google Cloud Function
+      env:
+        GCP_PROJECT: ${{ inputs.gcp_project }}
+        GCP_REGION: ${{ inputs.gcp_region }}
+        CLOUD_FUNCTION_NAME: ${{ inputs.cloud_function_name }}
+        SOURCE_CODE_DIRECTORY: ${{ inputs.source_code_directory }}
+        CREDENTIALS: ${{ inputs.credentials }}
       id: patch_cloud_function_source_code
       run: python src/patch_cloud_function_source_code.py
       shell: bash
