@@ -1,18 +1,16 @@
-name: Print env vars
-on: [workflow_dispatch]
+name: patch-cloud-function
+on: [push]
 
 jobs:
-  print-env-vars:
+  patch-cloud-function:
     runs-on: ubuntu-latest
-    name: Prints the env vars
+    name: Pushes the source code into Google Cloud Storage and Patches a Cloud Function with source code update.
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Print env vars
+      - name: Push Source Code to Cloud Storage and Patch the cloud function
         id: print_env_vars
-        uses: ./.github/actions/print_env # Uses an action in the root directory
-        # or use a released GitHub Action
-        # uses: shipyard/github-action/fetch-shipyard-env@1.0.0
+        uses: ./.github/actions/patch_cloud_function_source_code
         with:
           gcp_project: gcp_project_test
           gcp_region: gcp_region_test
