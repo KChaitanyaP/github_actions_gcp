@@ -1,6 +1,9 @@
 name: 'Google-Cloud-Functions-Deploy-Source-Code-Action'
 description: 'This Github action can be used to deploy source code to GCP Cloud Functions.'
 author: 'Chaitanya Pusuluri'
+branding:
+  icon: upload-cloud
+  color: yellow
 inputs:
   gcp_project:
     description: 'Name of the project in GCP'
